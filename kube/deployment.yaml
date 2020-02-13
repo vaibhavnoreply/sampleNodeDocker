@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newtest
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: newtest
+  template:
+    metadata:
+      labels:
+        app: newtest
+    spec:
+      containers:
+        - name: app
+          image: jainjainjain/newtest:latest
+          ports:
+            - containerPort: 3000
+          imagePullPolicy: Always
